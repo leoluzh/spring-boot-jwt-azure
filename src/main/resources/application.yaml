@@ -1,3 +1,9 @@
-jwt:
-  secret: 'changeme'
+azure:
+  activedirectory:
+    tenant-id: put-your-tenant-id-here
+    client-id: put-your-client-id-here
+    client-secret:
+    user-group:
+      allowed-group-names: group1
 
+# azure.redirect.url: http://localhost:8080/login/oauth2/code/azure
