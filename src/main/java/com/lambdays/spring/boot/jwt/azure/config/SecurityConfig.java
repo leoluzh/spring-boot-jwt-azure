@@ -1,6 +1,7 @@
 package com.lambdays.spring.boot.jwt.azure.config;
 
 import com.lambdays.spring.boot.jwt.azure.filter.JWTAuthenticationFilter;
+import com.lambdays.spring.boot.jwt.azure.filter.JWTAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .addFilter( new JWTAuthenticationFilter( this.authenticationManager() , this.jwtConfig ))
+                .addFilter( new JWTAuthorizationFilter( this.authenticationManager() , this.jwtConfig ))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
